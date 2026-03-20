@@ -2,12 +2,12 @@ import { User, Shield, Briefcase, FileText, Calendar as CalendarIcon, Target } f
 import './Employees.css';
 
 const employees = [
-  { id: 1, name: 'Анна Петрова', role: 'Администратор', status: 'На смене', avatar: 'https://i.pravatar.cc/150?u=anna', roleColor: '#4DB8FF' },
-  { id: 2, name: 'Дмитрий Иванов', role: 'Менеджер', status: 'Выходной', avatar: 'https://i.pravatar.cc/150?u=dmitry', roleColor: '#D4AF37' },
-  { id: 3, name: 'Елена Смирнова', role: 'Горничная', status: 'На смене', avatar: 'https://i.pravatar.cc/150?u=elena', roleColor: '#2ECC71' },
-  { id: 4, name: 'Макс Волков', role: 'Охрана', status: 'На смене', avatar: 'https://i.pravatar.cc/150?u=max', roleColor: '#FF6B6B' },
-  { id: 5, name: 'Нина Соколова', role: 'Банщица', status: 'Перерыв', avatar: 'https://i.pravatar.cc/150?u=nina', roleColor: '#9b59b6' },
-  { id: 6, name: 'Олег Морозов', role: 'Шеф-повар', status: 'На смене', avatar: 'https://i.pravatar.cc/150?u=oleg', roleColor: '#e67e22' },
+  { id: 1, name: 'Анна Петрова', role: 'Администратор', status: 'На смене', avatar: 'https://randomuser.me/api/portraits/women/44.jpg', roleColor: '#4DB8FF' },
+  { id: 2, name: 'Дмитрий Иванов', role: 'Менеджер', status: 'Выходной', avatar: 'https://randomuser.me/api/portraits/men/32.jpg', roleColor: '#D4AF37' },
+  { id: 3, name: 'Елена Смирнова', role: 'Горничная', status: 'На смене', avatar: 'https://randomuser.me/api/portraits/women/68.jpg', roleColor: '#2ECC71' },
+  { id: 4, name: 'Макс Волков', role: 'Охрана', status: 'На смене', avatar: 'https://randomuser.me/api/portraits/men/45.jpg', roleColor: '#FF6B6B' },
+  { id: 5, name: 'Нина Соколова', role: 'Банщица', status: 'Перерыв', avatar: 'https://randomuser.me/api/portraits/women/24.jpg', roleColor: '#9b59b6' },
+  { id: 6, name: 'Олег Морозов', role: 'Шеф-повар', status: 'На смене', avatar: 'https://randomuser.me/api/portraits/men/83.jpg', roleColor: '#e67e22' }
 ];
 
 export default function Employees() {
