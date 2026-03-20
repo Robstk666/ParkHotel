@@ -17,7 +17,7 @@ const occupancyData = [
 
 export default function Dashboard() {
   const [data, setData] = useState(null);
-  const [isRevenueModalOpen, setRevenueModalOpen] = useState(false);
+  const [modalConfig, setModalConfig] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -52,26 +52,45 @@ export default function Dashboard() {
       {/* Metrics Row */}
       <div className="metrics-grid">
         
-        {/* Revenue Card */}
-        <div className="metric-card glass-panel interactive" onClick={() => setRevenueModalOpen(true)}>
+        {/* Выручка сегодня */}
+        <div className="metric-card glass-panel interactive" onClick={() => setModalConfig({title: 'Структура выручки (Сегодня)', total: data.dailyRevenue, data: data.dailyBreakdown})}>
           <div className="metric-header">
             <h3 className="metric-title">Выручка сегодня</h3>
             <button className="drill-down-btn"><ChevronRight size={18} /></button>
           </div>
           <div className="metric-value">{data.dailyRevenue}</div>
-          <div className="metric-trend success" style={{color: 'var(--text-muted)'}}>
-             <span>Всего (Итого): <strong style={{color: 'var(--text-main)'}}>{data.totalRevenue}</strong></span>
-          </div>
           <div className="sparkline-container">
             <ResponsiveContainer width="100%" height={40}>
               <AreaChart data={sparklineData}>
                 <defs>
-                  <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient id="colorValueDay" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.8}/>
                     <stop offset="95%" stopColor="#D4AF37" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
-                <Area type="monotone" dataKey="value" stroke="#D4AF37" fillOpacity={1} fill="url(#colorValue)" />
+                <Area type="monotone" dataKey="value" stroke="#D4AF37" fillOpacity={1} fill="url(#colorValueDay)" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* Выручка за месяц */}
+        <div className="metric-card glass-panel interactive" onClick={() => setModalConfig({title: 'Структура выручки (За месяц)', total: data.totalRevenue, data: data.monthlyBreakdown})}>
+          <div className="metric-header">
+            <h3 className="metric-title">Выручка месяц</h3>
+            <button className="drill-down-btn"><ChevronRight size={18} /></button>
+          </div>
+          <div className="metric-value">{data.totalRevenue}</div>
+          <div className="sparkline-container">
+            <ResponsiveContainer width="100%" height={40}>
+              <AreaChart data={sparklineData}>
+                <defs>
+                  <linearGradient id="colorValueMonth" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#4DB8FF" stopOpacity={0.8}/>
+                    <stop offset="95%" stopColor="#4DB8FF" stopOpacity={0}/>
+                  </linearGradient>
+                </defs>
+                <Area type="monotone" dataKey="value" stroke="#4DB8FF" fillOpacity={1} fill="url(#colorValueMonth)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -177,7 +196,14 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {isRevenueModalOpen && <RevenueModal onClose={() => setRevenueModalOpen(false)} revenueTotal={data.dailyRevenue} />}
+      {modalConfig && (
+        <RevenueModal 
+          onClose={() => setModalConfig(null)} 
+          title={modalConfig.title} 
+          revenueTotal={modalConfig.total} 
+          breakdownData={modalConfig.data} 
+        />
+      )}
     </div>
   );
 }

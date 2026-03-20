@@ -2,22 +2,18 @@ import { X } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import './RevenueModal.css';
 
-const breakdownData = [
-  { name: 'Номерной фонд', value: 2400000, fill: '#4DB8FF' },
-  { name: 'Ресторан', value: 800000, fill: '#D4AF37' },
-  { name: 'Банный комплекс', value: 480000, fill: '#2ECC71' }
-];
-
 const formatCurrency = (value) => `₽ ${(value / 1000).toFixed(0)}k`;
 
-export default function RevenueModal({ onClose, revenueTotal }) {
+export default function RevenueModal({ onClose, title, revenueTotal, breakdownData }) {
+  const rawTotal = breakdownData ? breakdownData.reduce((acc, curr) => acc + curr.value, 0) : 0;
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content glass-panel" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div>
-            <h2 className="modal-title">Структура выручки</h2>
-            <p className="modal-subtitle">Итого сегодня: {revenueTotal}</p>
+            <h2 className="modal-title">{title}</h2>
+            <p className="modal-subtitle">Итого: {revenueTotal}</p>
           </div>
           <button className="close-btn" onClick={onClose}>
             <X size={24} />
@@ -41,11 +37,11 @@ export default function RevenueModal({ onClose, revenueTotal }) {
           </div>
           
           <div className="revenue-stats">
-            {breakdownData.map(item => (
+            {breakdownData && breakdownData.map(item => (
               <div key={item.name} className="stat-card" style={{ borderTop: `3px solid ${item.fill}` }}>
                 <span className="stat-name">{item.name}</span>
                 <span className="stat-value">₽ {item.value.toLocaleString('ru-RU')}</span>
-                <span className="stat-percent">{((item.value / 3680000) * 100).toFixed(1)}%</span>
+                <span className="stat-percent">{rawTotal > 0 ? ((item.value / rawTotal) * 100).toFixed(1) : 0}%</span>
               </div>
             ))}
           </div>
