@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" fill="none">
+  <!-- Mountains Left -->
+  <path d="M 120 70 L 100 90 L 80 110 L 10 110" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 100 90 L 115 110 M 120 70 L 140 110" stroke="white" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Mountains Right -->
+  <path d="M 280 70 L 300 90 L 320 110 L 390 110" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 300 90 L 285 110 M 280 70 L 260 110" stroke="white" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Center Trees -->
+  <path d="M 200 10 L 185 40 L 195 40 L 175 75 L 185 75 L 160 105 L 240 105 L 215 75 L 225 75 L 205 40 L 215 40 Z" fill="white" />
+  <rect x="196" y="105" width="8" height="15" fill="white" />
+  
+  <path d="M 160 30 L 150 55 L 155 55 L 140 85 L 145 85 L 125 108 L 195 108 L 175 85 L 180 85 L 165 55 L 170 55 Z" fill="white" />
+  <rect x="156" y="108" width="6" height="12" fill="white" />
+
+  <path d="M 240 30 L 250 55 L 245 55 L 260 85 L 255 85 L 275 108 L 205 108 L 225 85 L 220 85 L 235 55 L 230 55 Z" fill="white" />
+  <rect x="238" y="108" width="6" height="12" fill="white" />
+
+  <!-- Water Lines below trees -->
+  <line x1="130" y1="113" x2="270" y2="113" stroke="white" stroke-width="2" />
+  <line x1="160" y1="117" x2="240" y2="117" stroke="white" stroke-width="2" />
+  <line x1="180" y1="121" x2="220" y2="121" stroke="white" stroke-width="2" />
+
+  <!-- Text Border -->
+  <rect x="10" y="125" width="380" height="2" fill="white" />
+  <rect x="10" y="80" width="380" height="2" fill="white" />
+  <!-- We don't enclose the whole text since we want to mimic the screenshot's vibe roughly -->
+
+  <!-- Brand Text -->
+  <text x="200" y="117" font-family="'Montserrat', sans-serif" font-size="34" font-weight="700" fill="white" text-anchor="middle" letter-spacing="4">ТАЁЖНЫЙ</text>
+  
+  <!-- Sub Text -->
+  <text x="200" y="140" font-family="'Montserrat', sans-serif" font-size="12" font-weight="500" fill="white" text-anchor="middle" letter-spacing="8">ПАРК - ОТЕЛЬ</text>
+  
+  <!-- Side dashed lines -->
+  <line x1="20" y1="136" x2="110" y2="136" stroke="white" stroke-width="1.5" stroke-dasharray="4 2" />
+  <line x1="290" y1="136" x2="380" y2="136" stroke="white" stroke-width="1.5" stroke-dasharray="4 2" />
+</svg>

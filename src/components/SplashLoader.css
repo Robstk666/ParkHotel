@@ -1,0 +1,112 @@
+.splash-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  z-index: 10;
+}
+
+.logo-assembly {
+  animation: logoAssemble 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.splash-logo {
+  max-width: 250px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+}
+
+@keyframes logoAssemble {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 1s;
+}
+
+.pulse-icon {
+  color: var(--accent-gold);
+  animation: pulseRotate 2s infinite ease-in-out;
+}
+
+@keyframes pulseRotate {
+  0% { transform: scale(0.8) rotate(0deg); opacity: 0.5; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+  100% { transform: scale(0.8) rotate(360deg); opacity: 0.5; }
+}
+
+.loading-text {
+  color: var(--accent-teal);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Magnet pulling data particles effect */
+.data-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: var(--accent-teal);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleAttract 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.p1 { width: 6px; height: 6px; top: 20%; left: 30%; animation-delay: 0.2s; }
+.p2 { width: 4px; height: 4px; top: 70%; left: 20%; animation-delay: 0.5s; }
+.p3 { width: 8px; height: 8px; top: 40%; right: 25%; animation-delay: 0.8s; }
+.p4 { width: 5px; height: 5px; top: 80%; right: 35%; animation-delay: 1.1s; }
+.p5 { width: 7px; height: 7px; top: 15%; right: 40%; animation-delay: 1.4s; }
+
+@keyframes particleAttract {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    /* Assuming logo is roughly at center */
+    transform: translate(calc(50vw - var(--left, 0)), calc(50vh - var(--top, 0))) scale(0.1);
+    opacity: 0;
+  }
+}
