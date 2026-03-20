@@ -116,3 +116,38 @@
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
 }
+
+@media (max-width: 768px) {
+  .revenue-stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .modal-content {
+    width: 95%;
+  }
+  
+  .modal-body {
+    padding: 1.25rem;
+    gap: 1.5rem;
+  }
+  
+  .modal-header {
+    padding: 1rem 1.25rem;
+  }
+  
+  .stat-card {
+    padding: 0.75rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .stat-name {
+    flex: 1;
+  }
+  
+  .stat-percent {
+    margin-left: 0.5rem;
+  }
+}
