@@ -6,10 +6,6 @@ export default function Header() {
     <header className="top-header glass-panel">
       <div className="header-left">
         <h1 className="page-title">ПУЛЬТ ВЛАДЕЛЬЦА</h1>
-        <div className="status-indicator">
-          <div className="static-dot"></div>
-          <span className="status-text">Операции: Стабильно</span>
-        </div>
       </div>
       
       <div className="header-right">
